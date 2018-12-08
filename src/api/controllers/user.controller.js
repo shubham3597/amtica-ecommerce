@@ -101,7 +101,7 @@ const updateUser = async (req, res, next) => {
  */
 
 module.exports = {
-  // Question Main controllers
+  // User Main controllers
   addUser,
   getAllUsers,
   getUser,
