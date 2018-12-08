@@ -1,9 +1,13 @@
 {
   "name": "amtica-ecommerce",
   "version": "1.0.0",
-  "description": "",
+  "description": "ecommerce app for amtica ltd",
   "engines": {
     "node": "10.14.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shubham3597/amtica-ecommerce.git"
   },
   "main": "src/api/app.js",
   "scripts": {
