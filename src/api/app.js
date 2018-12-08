@@ -9,7 +9,7 @@ const devEnv = require('../../development.config');
 
 // Correct REST naming
 
-const {  userRoutes } = require('./routes');
+const {  userRoutes, categoryRoutes  } = require('./routes');
 
 const app = express();
 
@@ -51,6 +51,7 @@ app.all('/', (req, res, next) => {
 });
 
 app.use('/api/users',  userRoutes, cors(corsOptions));
+app.use('/api/categories', categoryRoutes, cors(corsOptions));
 
 // Invalid routes handling middleware
 app.use((req, res, next) => {
