@@ -1,4 +1,4 @@
-const questions = require('./question.controller');
+const users = require('./user.controller');
 module.exports = {
-    questions
+    users
   };

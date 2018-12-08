@@ -1,5 +1,5 @@
-const questionsRoutes = require('./question.route');
+const userRoutes = require('./user.route');
 
 module.exports = {
-    questionsRoutes
+    userRoutes
   };
