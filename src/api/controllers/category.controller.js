@@ -13,8 +13,10 @@ const addCategory = async (req, res, next) => {
     const categoryData = new Category({
         categoryName:req.body.categoryName,
         categoryDescription:req.body.categoryDescription,
+        type:req.body.type,
         otherDetails:req.body.otherDetails
     });
+
 
     const category = await Category.create(categoryData);
 
@@ -50,7 +52,7 @@ const getCategory = async(req, res, next) =>{
     const category = await Category.findOne({
       _id: categoryId
     })
-      .select('_id categoryName categoryDescription subCategories parentCategories otherDetails createdDate');
+      .select('_id categoryName type categoryDescription subCategories parentCategories otherDetails createdDate');
 
     // Category not found
     if (!category) {

@@ -11,8 +11,12 @@ export class RootCategoryService {
 
   constructor(private _http: HttpClient) { }
 
-  addRootCategory(categoryData){
+  addCategory(categoryData){
     return this._http.post(this.BASE_API_URL+'/categories', categoryData);
+  }
+
+  getCategory(categoryId){
+    return this._http.get(this.BASE_API_URL+'/categories/'+categoryId);
   }
 
   getRootCategories(){
@@ -21,5 +25,9 @@ export class RootCategoryService {
 
   deleteCategories(categoryId){
     return this._http.delete(this.BASE_API_URL+'/categories/'+categoryId);
+  }
+
+  updateCategory(categoryId, categoryData){
+    return this._http.put(this.BASE_API_URL+'/categories/'+categoryId, categoryData);
   }
 }

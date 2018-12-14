@@ -1,5 +1,4 @@
 .main-heading{
-    margin-top:1rem; 
     padding:1rem;
     font-weight: bold;
 }
@@ -15,7 +14,7 @@
   }
 
   .square:hover{
-    background-color: #048BA8;
+    background-color: #FF521B;
     color:#020122;
   }
 
@@ -25,4 +24,27 @@
     margin-block-start: 0; 
     margin-inline-end: 0; 
     margin-inline-start: 0;
+  }
+
+  .submit-button{
+    height:50px; 
+    background-color: #020122;
+    opacity: 0.9;
+  }
+
+  .submit-button:hover{
+    opacity: 1.0;
+  }
+
+  .back-button{
+    opacity: 0.9;
+    height: 50px; 
+    color: white; 
+    background-color:#FF521B; 
+    border-color: #FF521B; 
+  }
+
+  .back-button:hover{
+
+    opacity: 1.0;
   }

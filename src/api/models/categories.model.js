@@ -14,6 +14,11 @@ const CategorySchema = new Schema({
     type: String,
     required: true
   },
+  type:{
+    type:String,
+    enum:['root', 'sub'],
+    required: true
+  },
   categoryDescription: {
     type: String,
     required: true

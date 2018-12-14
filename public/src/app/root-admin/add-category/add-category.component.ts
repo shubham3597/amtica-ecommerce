@@ -67,6 +67,7 @@ export class AddCategoryComponent implements OnInit {
     const category ={
       categoryName:this.detailsForm.controls.name.value,
       categoryDescription:this.detailsForm.controls.description.value,
+      type:'root',
       otherDetails:[{
       }]
     };
@@ -78,7 +79,7 @@ export class AddCategoryComponent implements OnInit {
     }
     console.log('Category Form Data', category);
 
-   await this.rootservice.addRootCategory(category)
+   await this.rootservice.addCategory(category)
     .subscribe((res)=>{
       console.log('Category Added', res);
       Swal({

@@ -18,6 +18,7 @@ import { ListCategoriesComponent } from './root-admin/list-categories/list-categ
 
 import { RootCategoryService } from '../shared/services/root-category.service';
 import { RootCategoryComponent } from './root-admin/root-category/root-category.component';
+import { AddSubCategoryComponent } from './root-admin/add-sub-category/add-sub-category.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -54,7 +55,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     AddCategoryComponent,
     RootAdminHomeComponent,
     ListCategoriesComponent,
-    RootCategoryComponent
+    RootCategoryComponent,
+    AddSubCategoryComponent
   ],
   imports: [
     BrowserModule,

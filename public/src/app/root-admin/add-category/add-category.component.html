@@ -1,4 +1,5 @@
-<app-root-admin></app-root-admin>
+<app-navbar></app-navbar>
+<div class="main">
 <div class="row  main-heading">
   <div class="col-md-12" style="text-align:center;">
     <h1 style="font-weight:inherit; font-size: 40px;">Add a new Root Category</h1>
@@ -51,7 +52,7 @@
               </div>
             
             </div>
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-md-12" style="text-align: center; margin-right: 0em;">
                     <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; margin-block-end: 0; background-color: #020122;">
                       <h4 style="color:white;">Add Other Details(Optional)</h4></label>
@@ -88,7 +89,7 @@
 
                     
                 </div>
-              </div>
+              </div>-->
             <div class="row">
                 <div class="mt-4 col-md-12">
               
@@ -96,10 +97,21 @@
               
               </div>
           <div class="row">
-              <div class="col-md-12" style="text-align: center; margin: 0;">
-                  <button class="btn btn-lg btn-primary" (click)="createCategory();" style="width:50%; margin-block-end: 0; margin-block-start: 0; margin-inline-end: 0; margin-inline-start: 0;">Submit</button>
-                  <button class="btn btn-lg btn-warning" routerLink="/root-admin" style=" width:50%; margin-block-end: 0; margin-block-start: 0; margin-inline-end: 0; margin-inline-start: 0;">Back</button>
+              <div class="col-md-12" style="text-align: center;">
+                  <button class="btn form-control btn-lg btn-dark submit-button" (click)="createCategory();">Submit</button>
+                  
               </div>
+              <div class="row">
+                <div class="mt-4 col-md-12">
+              
+                </div>
+              
+              </div>
+              <div class="col-md-12" style="text-align: center;">
+                <button class="btn btn-lg form-control back-button" routerLink="/root-admin" >Back</button>
+                
+            </div>
+             
             </div>
           
       </form>
@@ -107,4 +119,5 @@
     <div class="col-md-2">
     </div>
   </div>
+</div>
 </div>

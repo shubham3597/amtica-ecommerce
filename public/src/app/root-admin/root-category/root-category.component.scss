@@ -1,0 +1,19 @@
+.main-heading{
+    padding:1rem;
+    font-weight: bold;
+}
+
+.square {
+    height: 150px;
+    width: 150px;
+    font-weight: bold;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: #020122;
+    cursor: pointer;
+    margin: 1rem 1rem 1rem 1rem;
+  }
+
+  .square:hover{
+    background-color: #FF521B;
+    color:#020122;
+  }
