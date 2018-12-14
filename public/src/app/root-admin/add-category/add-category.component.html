@@ -1,0 +1,110 @@
+<app-root-admin></app-root-admin>
+<div class="row  main-heading">
+  <div class="col-md-12" style="text-align:center;">
+    <h1 style="font-weight:inherit; font-size: 40px;">Add a new Root Category</h1>
+    <div class="col-sm-12">
+    Define a new category here
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="mt-4 col-md-12">
+
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <form [formGroup]="detailsForm">
+        <div class="row">
+          <div class="col-md-6" style="text-align: center; margin-right: 0em;">
+              <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; background-color: #020122;">
+                <h4 style="color:white;">Category Name</h4></label>
+              
+          </div>
+          <div class="col-md-6" style="text-align:center; margin-left: 0rem;">
+              <input formControlName="name" name="name" id="name" class="form-control" style="height: 50px;">
+          </div>
+        </div>
+        <div class="row">
+            <div class="mt-4 col-md-12">
+          
+            </div>
+          
+          </div>
+        <div class="row">
+            <div class="col-md-12" style="text-align: center; margin-right: 0em;">
+                <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; margin-block-end: 0; background-color: #020122;">
+                  <h4 style="color:white;">Category Description</h4></label>
+                  <textarea formControlName="description" name="description" id="description" class="form-control" style=" margin: 0;"></textarea>
+                
+            </div>
+          </div>
+          <div class="row">
+              <div class="mt-4 col-md-12">
+            
+              </div>
+            
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="text-align: center; margin-right: 0em;">
+                    <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; margin-block-end: 0; background-color: #020122;">
+                      <h4 style="color:white;">Add Other Details(Optional)</h4></label>
+                      <div class="row container" *ngFor="let detail of otherDetails; let i = index;" style="margin-top: 1rem;">
+                          <div class="col-md-6" style="text-align: center; margin-right: 0em;">
+                              <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; background-color: #020122;">
+                                <h4 style="color:white;">Detail Name</h4></label>
+                              
+                          </div>
+                          <div class="col-md-6" style="text-align:center; margin-left: 0rem;">
+                              <input formControlName="detail{{detail}}" name="detail{{detail}}" id="detail{{detail}}" class="form-control" style="height: 50px;">
+                          </div>
+
+                          <div class="col-md-6" style="text-align: center; margin-right: 0em;">
+                              <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; background-color: #020122;">
+                                <h4 style="color:white;">Detail Description</h4></label>
+                              
+                          </div>
+                          <div class="col-md-6" style="text-align:center; margin-left: 0rem;">
+                              <input formControlName="detail{{detail}}desc" name="detail{{detail}}desc" id="detail{{detail}}desc" class="form-control" style="height: 50px;">
+                          </div>
+
+                        </div>
+                        <div class="row container" style="margin-top: 1rem;"> 
+                          <div class="col-md-4">
+                              <button class="btn btn-md btn-success" (click)="addDetails();">Add more details</button>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-md btn-danger" *ngIf="this.otherDetails.length>1" (click)="removeLastDetail();">Remove Last Detail</button>
+                              </div>
+                            
+                            
+                        </div>
+
+                    
+                </div>
+              </div>
+            <div class="row">
+                <div class="mt-4 col-md-12">
+              
+                </div>
+              
+              </div>
+          <div class="row">
+              <div class="col-md-12" style="text-align: center; margin: 0;">
+                  <button class="btn btn-lg btn-primary" (click)="createCategory();" style="width:50%; margin-block-end: 0; margin-block-start: 0; margin-inline-end: 0; margin-inline-start: 0;">Submit</button>
+                  <button class="btn btn-lg btn-warning" routerLink="/root-admin" style=" width:50%; margin-block-end: 0; margin-block-start: 0; margin-inline-end: 0; margin-inline-start: 0;">Back</button>
+              </div>
+            </div>
+          
+      </form>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>

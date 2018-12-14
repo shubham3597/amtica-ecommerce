@@ -1,0 +1,30 @@
+<app-root-admin></app-root-admin>
+<div class="row  main-heading">
+        <div class="col-md-12" style="text-align:center;">
+          <h1 style="font-weight:inherit; font-size: 40px;">All Root Categories</h1>
+          <div class="col-sm-12">
+          Here you'll have all root categories, that you have defined
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="mt-4 col-md-12">
+      
+        </div>
+      
+      </div>
+<div class="row" style="margin-left: 10%;">
+    <div class="col-md-3 square" *ngFor="let category of categories; let i = index;">
+        <h3 style="color:white;">{{category?.categoryName}}</h3>
+        <div class="row">
+                <div class="mt-4 col-md-12">
+              
+                </div>
+              
+              </div>
+            <i class="fas fa-edit" style="font-size:24px; color: white; float: left; cursor: pointer;"></i>
+            <i class="fas fa-eye" style="font-size:24px; color: white; cursor: pointer; margin-left: 35%;"></i>
+            <i class="fas fa-archive" (click)="deleteCategory(category?._id)" style="font-size:24px; color: white;float: right; cursor: pointer;"></i>
+    </div>   
+</div>

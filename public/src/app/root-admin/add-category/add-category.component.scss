@@ -1,0 +1,28 @@
+.main-heading{
+    margin-top:1rem; 
+    padding:1rem;
+    font-weight: bold;
+}
+
+.square {
+    height: 150px;
+    width: 150px;
+    font-weight: bold;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: #020122;
+    cursor: pointer;
+    margin: 1rem 1rem 1rem 1rem;
+  }
+
+  .square:hover{
+    background-color: #048BA8;
+    color:#020122;
+  }
+
+  .buttons{
+    width:50%; 
+    margin-block-end: 0;
+    margin-block-start: 0; 
+    margin-inline-end: 0; 
+    margin-inline-start: 0;
+  }
