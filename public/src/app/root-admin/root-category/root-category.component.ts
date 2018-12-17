@@ -130,7 +130,7 @@ async addSubCategory() {
       '<label For=\'input1\'> Category Name</label>' +
       '<input id="input1" class="swal2-input">' +
       '<label For=\'input2\'> Category Description</label>' +
-      '<input id="input2" class="swal2-input">',
+      '<textarea id="input2" class="swal2-input"></textarea>',
     focusConfirm: false,
     showCancelButton: true,
     cancelButtonColor: '#d33',
