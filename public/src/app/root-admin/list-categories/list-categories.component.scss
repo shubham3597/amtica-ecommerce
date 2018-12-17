@@ -7,9 +7,11 @@
     height: 150px;
     width: 150px;
     font-weight: bold;
+    float: none;
+    margin: 0 auto;
     padding: 1rem 1rem 1rem 1rem;
     background-color: #020122;
-    margin: 1rem 1rem 1rem 1rem;
+  //  margin: 1rem 1rem 1rem 1rem;
   }
 
   .square:hover{

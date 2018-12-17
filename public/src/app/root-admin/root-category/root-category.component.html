@@ -28,12 +28,30 @@
                       </div>
                     </div>
                     <div class="row text-center">
-                            <div class="col-md-3 square"  (click)="addSubCategory();">
+                            <div class="col-md-3 col-sm-12 col-xs-12 square"  (click)="addSubCategory();">
                               <i class="fas fa-plus" style="font-size:48px; color: white;" ></i>
                               <div class="mt-4 col-md-12">
                           
                               </div>
                               <h5 style="font-weight: inherit; color: white;"> Add sub-category</h5>
                           </div>
+
+                          <div class="col-md-12" *ngFor="let subcategory of subCategoriesData; let i = index;">
+                            <div class="row">
+                            <div class="col-md-3 col-sm-12 col-xs-12 square" [routerLink]="['/root-admin/category',subcategory?._id]">
+                                <h3 style="color:white;">{{subcategory?.categoryName}}</h3>
+
+                            </div> 
+                            <div class="col-md-8 square-description" style="outline: 3px solid #020122; "> 
+                    
+                                <p style="font-weight: inherit; color: black;">{{this.subcategory?.categoryDescription}}</p>
+                                <i class="fas fa-edit" (click)="updateCategory(subcategory?._id, subcategory?.categoryName, subcategory?.categoryDescription)" style="font-size:24px; color: teal; float: left; cursor: pointer;"></i>
+                                <i class="fas fa-eye" [routerLink]="['/root-admin/category',subcategory?._id]" routerLinkActive="router-link-active"  style="font-size:24px; color: black; cursor: pointer;float: none; margin: 0 auto;"></i>
+                                <i class="fas fa-archive" (click)="deleteCategory(subcategory?._id)" style="font-size:24px; color: darkred;float: right; cursor: pointer;"></i>
+                               
+                                </div>
+                            </div>
                           </div>
+                          </div>
+ 
     </div>
