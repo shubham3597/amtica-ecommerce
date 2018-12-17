@@ -205,7 +205,7 @@ async updateCategory(categoryId, categoryName, categoryDescription){
       '<label For=\'input1\'> Category Name</label>' +
       '<input id="input1" class="swal2-input" value='+categoryName+'>' +
       '<label For=\'input2\'> Category Description</label>' +
-      '<input id="input2" class="swal2-input" value='+categoryDescription+'>',
+      '<textarea id="input2" class="swal2-input">'+categoryDescription+'</textarea>',
     focusConfirm: false,
     showCancelButton: true,
     cancelButtonColor: '#d33',
