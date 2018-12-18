@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { RootCategoryService } from 'src/shared/services/root-category.service';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, NavigationExtras } from '@angular/router';
 import {
 Router, Event, NavigationStart, RoutesRecognized,
 RouteConfigLoadStart, RouteConfigLoadEnd,
@@ -22,9 +22,11 @@ categoryData = {
   categoryName: '',
   type: '',
   categoryDescription: '',
-  subCategories: []
+  subCategories: [],
+  _id:''
 };
 subCategoriesData = new Array();
+product = new Array();
 
 constructor(private ngxService: NgxUiLoaderService,
   private router: Router, private rootService: RootCategoryService, private _activatedRoute: ActivatedRoute) {
@@ -63,6 +65,17 @@ constructor(private ngxService: NgxUiLoaderService,
 
 reloadPage() {
   window.location.reload();
+}
+
+navigateToAddProduct(subCategory){
+  
+  let navigationExtras: NavigationExtras = {
+    queryParams: {
+        "subCategory": subCategory
+    }
+  };
+  this.router.navigate(['root-admin', 'add-product'], navigationExtras);
+  console.log(navigationExtras);
 }
 
 ngOnInit() {
@@ -109,13 +122,34 @@ async getAllSubcategories() {
 
 }
 
+async getProducts(){
+  if(this.categoryData['products'].length > 0){
+    for (var i = 0; i < this.categoryData['products'].length; i++) {
+
+      await this.rootService.getProduct(this.categoryData['products'][i])
+        .subscribe((res) => {
+         // console.log('Category Name: ',res['category']['categoryName'],'\nCategory Status: ',res['category']['active']);
+          if(res['product']['active'] == true){
+            this.product.push(res['product']);
+          }
+            
+        }, (err) => {
+          console.log('Error Occured while fetching Products', err);
+        })
+    }
+    
+  }
+}
+
 async getCategory(categoryId) {
   await this.rootService.getCategory(categoryId)
     .subscribe((res) => {
       this.categoryData = res['category'];
       console.log('Category Fetched', res);
       this.getAllSubcategories();
+      this.getProducts();
       console.log('Subcategories Fetched', this.subCategoriesData);
+      console.log('Products', this.product);
     }, (err) => {
       console.log('Error while fetching Category', err);
     })

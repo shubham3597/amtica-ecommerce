@@ -31,6 +31,10 @@ const CategorySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category'
   }],
+  products:[{
+    type: Schema.Types.ObjectId,
+    ref: 'Product'}
+  ],
   createdDate: {
     type: Date,
     default: Date.now()

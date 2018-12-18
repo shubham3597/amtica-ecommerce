@@ -1,4 +1,5 @@
 const { Product } = require('../models');
+const { Category } = require('../models');
 const { sendErr } = require('../../utils');
 
 /*  ======================
@@ -21,9 +22,19 @@ const addProduct = async (req, res, next) => {
 
     const product = await Product.create(productData);
 
+    console.log(productData.category[0]);
+
+    const category = await Category.findOneAndUpdate({
+      _id:productData.category[0]
+    },{
+      $push:{products:[product._id]}
+    })
+
+
     return res.status(200).json({
       message: 'New Product Added!',
-      product
+      product,
+      category
     });
   } catch (err) {
     return sendErr(res, err);
@@ -56,12 +67,12 @@ const getProduct = async(req, res, next) =>{
       .select('_id name active description category itemPicture otherDetails createdDate');
 
     // Category not found
-    if (!category) {
+    if (!product) {
       return sendErr(res, err, 'Error! Category not found, invalid id or unauthorized request', 404);
     }
 
     return res.status(200).json({
-      message: `Category found!`,
+      message: `Product found!`,
       product
     });
 
@@ -86,7 +97,7 @@ const updateProduct = async (req, res, next) => {
     });
 
     return res.status(200).json({
-      message: 'Category updated!',
+      message: 'Product updated!',
       product
     });
 
@@ -107,7 +118,7 @@ const removeProduct = async (req, res, next) => {
       const productRemoved = await Category.findByIdAndRemove(product);
   
       return res.status(200).json({
-        message: 'Category deleted!',
+        message: 'Product deleted!',
         productRemoved
       });
     } catch (err) {

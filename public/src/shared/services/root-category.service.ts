@@ -30,4 +30,12 @@ export class RootCategoryService {
   updateCategory(categoryId, categoryData){
     return this._http.put(this.BASE_API_URL+'/categories/'+categoryId, categoryData);
   }
+
+  addProduct(product){
+    return this._http.post(this.BASE_API_URL+'/products', product);
+  }
+
+  getProduct(productId){
+    return this._http.get(this.BASE_API_URL+'/products/'+productId);
+  }
 }

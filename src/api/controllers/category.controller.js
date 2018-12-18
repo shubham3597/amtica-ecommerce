@@ -52,7 +52,7 @@ const getCategory = async(req, res, next) =>{
     const category = await Category.findOne({
       _id: categoryId
     })
-      .select('_id categoryName type active categoryDescription subCategories parentCategories otherDetails createdDate');
+      .select('_id categoryName type active products categoryDescription subCategories parentCategories otherDetails createdDate');
 
     // Category not found
     if (!category) {
