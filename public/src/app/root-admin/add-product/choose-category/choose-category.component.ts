@@ -31,14 +31,14 @@ export class ChooseCategoryComponent implements OnInit {
 
   }
 
-  navigateToAddProduct(subCategory){
+  navigateToCategory(subCategory){
   
     let navigationExtras: NavigationExtras = {
       queryParams: {
           "subCategory": subCategory
       }
     };
-    this.router.navigate(['root-admin', 'add-product'], navigationExtras);
+    this.router.navigate(['root-admin', 'category'], navigationExtras);
     console.log(navigationExtras);
   }
 

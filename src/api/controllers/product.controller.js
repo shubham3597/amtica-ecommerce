@@ -60,7 +60,7 @@ const getAllProducts = async (req, res, next) => {
     .lean();
 
     return res.status(200).json({
-      message: 'All Categories found!',
+      message: 'All Products found!',
       products
       
     });

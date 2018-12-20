@@ -23,6 +23,8 @@ import { ProductComponent } from './root-admin/product/product.component';
 import { AddProductComponent } from './root-admin/add-product/add-product.component';
 import { ListSubCategoriesComponent } from './root-admin/list-sub-categories/list-sub-categories.component';
 import { ChooseCategoryComponent } from './root-admin/add-product/choose-category/choose-category.component';
+import { ListProductsComponent } from './root-admin/product/list-products/list-products.component';
+import { ChooseSubCategoryComponent } from './root-admin/add-product/choose-sub-category/choose-sub-category.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -64,7 +66,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ProductComponent,
     AddProductComponent,
     ListSubCategoriesComponent,
-    ChooseCategoryComponent
+    ChooseCategoryComponent,
+    ListProductsComponent,
+    ChooseSubCategoryComponent
   ],
   imports: [
     BrowserModule,

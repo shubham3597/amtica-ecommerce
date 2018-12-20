@@ -1,15 +1,26 @@
 <!-- The sidebar -->
 <div class="sidebar">
-  <h2>Ecommerce</h2>
-  <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
-  <button type="button" class="dropdown-btn">Root Menu
+  <h2>Root Admin</h2>
+  <a routerLink="/root-admin" >Root Admin Home</a>
+  <a type="button" class="btn btn-primary dropdown-btn" style="background-color: #005fd5;">Root Category
     <i class="fa fa-caret-down"></i>
-  </button>
+  </a>
   <div class="dropdown-container">
-    <a routerLink="/root-admin">Root Admin Home</a>
     <a [routerLink]="['/root-admin/add-category']" routerLinkActive="active">Add a Root-Category</a>
+    <a [routerLink]="['/root-admin/list-categories']" routerLinkActive="active">All Root-Categories</a>
+  </div>
+
+  <a type="button" class="btn btn-primary dropdown-btn" style="background-color: #005fd5;">Sub Category
+    <i class="fa fa-caret-down"></i></a>
+  <div class="dropdown-container">
     <a [routerLink]="['/root-admin/add-sub-category']" routerLinkActive="active">Add a Sub-Category</a>
     <a [routerLink]="['/root-admin/list-sub-categories']" routerLinkActive="active">All Sub-Categories</a>
-    <a [routerLink]="['/root-admin/list-categories']" routerLinkActive="active">All Root-Categories</a>
+  </div>
+
+  <a type="button" class="btn btn-primary dropdown-btn" style="background-color: #005fd5;">Product
+    <i class="fa fa-caret-down"></i></a>
+  <div class="dropdown-container">
+    <a [routerLink]="['/root-admin/product/choose-category']" routerLinkActive="active">Add a Product</a>
+    <a [routerLink]="['/root-admin/list-products']" routerLinkActive="active">All Products</a>
   </div>
 </div>

@@ -38,4 +38,8 @@ export class RootCategoryService {
   getProduct(productId){
     return this._http.get(this.BASE_API_URL+'/products/'+productId);
   }
+
+  getProducts(){
+    return this._http.get(this.BASE_API_URL+'/products');
+  }
 }

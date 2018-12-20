@@ -2,9 +2,9 @@
 <div class="main">
   <div class="row main-heading">
     <div class="col-md-12" style="text-align:center;">
-      <h1 style="font-weight:inherit; font-size: 40px;">Choose Root category</h1>
+      <h1 style="font-weight:inherit; font-size: 40px;">All Products</h1>
       <div class="col-sm-12">
-        Click any of the root categories, to add your product.
+        Here you'll have all the products, that you have defined.
       </div>
     </div>
   </div>
@@ -15,16 +15,16 @@
     </div>
 
   </div>
-  <div class="row" style="margin-bottom: 5px;" *ngFor="let category of categories; let i = index;">
+  <div class="row">
     <!---<div class="col-md-4 col-sm-12 col-xs-12" *ngIf="category?.type == 'sub'" >
         <i class="fas fa-edit" (click)="updateCategory(category?._id, category?.categoryName, category?.categoryDescription)" style="font-size:30px; color: black; cursor: pointer; float: right; color: #005fd5; margin: 0 auto;"></i>
     </div>-->
       
-      <div class="col-md-4 col-sm-12 col-xs-12 square" [routerLink]="['/root-admin/product/category',category?._id]" routerLinkActive="router-link-active" style="cursor: pointer;" *ngIf="category?.type == 'root'">
-          <h3 style="color:white;">{{category?.categoryName}} </h3>
+      <div class="col-md-3 col-sm-12 col-xs-12 square"  *ngFor="let product of products; let i = index;" [routerLink]="['/product',product?._id]" style="cursor: pointer; margin: 0.2rem;">
+          <h3 style="color:white;">{{product?.name}} </h3>
           
           <div class="row container">
-            <p style="color:white;">{{category?.categoryDescription}}</p>
+            <p style="color:white;">{{product?.description}}</p>
           </div>
           
       </div>

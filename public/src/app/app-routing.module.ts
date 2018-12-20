@@ -11,7 +11,9 @@ import { AddProductComponent } from './root-admin/add-product/add-product.compon
 import { AddSubCategoryComponent } from './root-admin/add-sub-category/add-sub-category.component';
 import { ListSubCategoriesComponent } from './root-admin/list-sub-categories/list-sub-categories.component';
 import { ChooseCategoryComponent } from './root-admin/add-product/choose-category/choose-category.component';
-ChooseCategoryComponent
+import { ListProductsComponent } from './root-admin/product/list-products/list-products.component';
+import { ChooseSubCategoryComponent } from './root-admin/add-product/choose-sub-category/choose-sub-category.component';
+
 
 
 const routes: Routes = [
@@ -24,8 +26,10 @@ const routes: Routes = [
   { path:'product/:productid', component:ProductComponent },
   { path:'root-admin/add-product', component:AddProductComponent, data:{} },
   { path:'root-admin/product/choose-category', component:ChooseCategoryComponent },
+  { path:'root-admin/product/category/:id', component:ChooseSubCategoryComponent },
   { path:'root-admin/add-sub-category', component: AddSubCategoryComponent },
   { path:'root-admin/list-sub-categories', component: ListSubCategoriesComponent },
+  { path:'root-admin/list-products', component: ListProductsComponent },
 
 ]  
 
