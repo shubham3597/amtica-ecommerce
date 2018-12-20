@@ -10,6 +10,7 @@ RouteConfigLoadStart, RouteConfigLoadEnd,
 NavigationEnd, NavigationCancel, NavigationError
 } from '@angular/router';
 
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -20,6 +21,7 @@ export class AddProductComponent implements OnInit {
   productsForm: FormGroup;
   otherDetails = [1];
   category = [];
+  imageFile: File = null;
 
   constructor(private rootservice: RootCategoryService, private router: Router,  private ngxService: NgxUiLoaderService, private _activatedRoute: ActivatedRoute) { 
     this._activatedRoute.queryParams
@@ -30,7 +32,17 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ngxService.start(); // start foreground loading with 'default' id
+ 
+    // Stop the foreground loading after 5s
+    setTimeout(() => {
+      this.ngxService.stop(); // stop foreground loading with 'default' id
+    }, 500);
     this.initCreateProductForm();
+  }
+
+  OnSelectedFile(event){
+    this.imageFile = <File>event.target.files[0];
   }
 
   initCreateProductForm() {
@@ -39,6 +51,7 @@ export class AddProductComponent implements OnInit {
       name: new FormControl(null),
       description: new FormControl(null),
       detail1: new FormControl(null),
+      file : new FormControl(null),
       detail1desc: new FormControl(null)
     });
   }

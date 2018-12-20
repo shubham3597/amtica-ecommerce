@@ -2,9 +2,9 @@
 <div class="main">
   <div class="row main-heading">
     <div class="col-md-12" style="text-align:center;">
-      <h1 style="font-weight:inherit; font-size: 40px;">All Root Categories</h1>
+      <h1 style="font-weight:inherit; font-size: 40px;">All Sub Categories</h1>
       <div class="col-sm-12">
-        Here you'll have all root categories, that you have defined
+        Here you'll have all the sub-categories, that you have defined.
       </div>
     </div>
   </div>
@@ -16,11 +16,11 @@
 
   </div>
   <div class="row" style="margin-bottom: 5px;" *ngFor="let category of categories; let i = index;">
-    <div class="col-md-4 col-sm-12 col-xs-12" *ngIf="category?.type == 'root'" >
+    <!---<div class="col-md-4 col-sm-12 col-xs-12" *ngIf="category?.type == 'sub'" >
         <i class="fas fa-edit" (click)="updateCategory(category?._id, category?.categoryName, category?.categoryDescription)" style="font-size:30px; color: black; cursor: pointer; float: right; color: #005fd5; margin: 0 auto;"></i>
-    </div>
+    </div>-->
       
-      <div class="col-md-4 col-sm-12 col-xs-12 square" [routerLink]="['/root-admin/category',category?._id]" style="cursor: pointer;" *ngIf="category?.type == 'root'">
+      <div class="col-md-4 col-sm-12 col-xs-12 square" [routerLink]="['/root-admin/category',category?._id]" style="cursor: pointer;" *ngIf="category?.type == 'sub'">
           <h3 style="color:white;">{{category?.categoryName}} </h3>
           
           <div class="row container">
@@ -28,8 +28,8 @@
           </div>
           
       </div>
-      <div class="col-md-4 col-sm-12 col-xs-12" *ngIf="category?.type == 'root'">
+      <!---<div class="col-md-4 col-sm-12 col-xs-12" *ngIf="category?.type == 'sub'">
           <i class="fas fa-archive" (click)="deleteCategory(category?._id)" style="font-size:30px; color:#005fd5;float: none; margin: 0 auto; cursor: pointer;"></i>
-      </div>
+      </div>-->
   </div>
 </div>

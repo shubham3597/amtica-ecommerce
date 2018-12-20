@@ -5,6 +5,9 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 
+const multer = require('multer');
+const upload = multer({dest:'uploads/'})
+
 const devEnv = require('../../development.config');
 
 // Correct REST naming
@@ -44,6 +47,7 @@ app.use(morgan('dev'));
 
 // static folder
 app.use(express.static(path.join(__dirname, '../../public/dist/public'), {redirect: false}));
+app.use('/uploads', express.static('uploads'));
 
 // Routes which should handle request
 app.all('/', (req, res, next) => {

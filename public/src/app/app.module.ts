@@ -21,6 +21,8 @@ import { RootCategoryComponent } from './root-admin/root-category/root-category.
 import { AddSubCategoryComponent } from './root-admin/add-sub-category/add-sub-category.component';
 import { ProductComponent } from './root-admin/product/product.component';
 import { AddProductComponent } from './root-admin/add-product/add-product.component';
+import { ListSubCategoriesComponent } from './root-admin/list-sub-categories/list-sub-categories.component';
+import { ChooseCategoryComponent } from './root-admin/add-product/choose-category/choose-category.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -30,14 +32,14 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   "bgsSize": 100,
   "bgsType": "three-bounce",
   "blur": 15,
-  "fgsColor": "#FF521B",
+  "fgsColor": "#FFF",
   "fgsPosition": "center-center",
   "fgsSize": 100,
   "fgsType": "wandering-cubes",
   "gap": 24,
   "logoPosition": "center-center",
   "logoSize": 120,
-  "overlayColor": "#020122",
+  "overlayColor": "#002f6a",
   "pbColor": "#fff",
   "pbDirection": "ltr",
   "pbThickness": 5,
@@ -60,7 +62,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     RootCategoryComponent,
     AddSubCategoryComponent,
     ProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    ListSubCategoriesComponent,
+    ChooseCategoryComponent
   ],
   imports: [
     BrowserModule,

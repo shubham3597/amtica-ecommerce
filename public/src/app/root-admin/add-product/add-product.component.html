@@ -2,9 +2,9 @@
 <div class="main">
 <div class="row  main-heading">
   <div class="col-md-12" style="text-align:center;">
-    <h1 style="font-weight:inherit; font-size: 40px;">Add a new Root Category</h1>
+    <h1 style="font-weight:inherit; font-size: 40px;">Add a new Product</h1>
     <div class="col-sm-12">
-    Define a new category here
+    Define a new product here
     </div>
   </div>
 </div>
@@ -24,7 +24,7 @@
       <form [formGroup]="productsForm">
         <div class="row">
           <div class="col-md-6" style="text-align: center; margin-right: 0em;">
-              <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; background-color: #020122;">
+              <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; background-color: #005fd5;">
                 <h4 style="color:white;">Product Name</h4></label>
               
           </div>
@@ -40,7 +40,7 @@
           </div>
         <div class="row">
             <div class="col-md-12" style="text-align: center; margin-right: 0em;">
-                <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; margin-block-end: 0; background-color: #020122;">
+                <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; margin-block-end: 0; background-color: #005fd5;">
                   <h4 style="color:white;">Product Description</h4></label>
                   <textarea formControlName="description" name="description" id="description" class="form-control" style=" margin: 0;"></textarea>
                 
@@ -54,12 +54,13 @@
             </div>
             <div class="row">
                 <div class="col-md-12" style="text-align: center; margin-right: 0em;">
-                    <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; margin-block-end: 0; background-color: #020122;">
-                      <h4 style="color:white;">Add Other Details(Optional)</h4></label>
+                    <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; margin-block-end: 0; background-color:#005fd5;">
+                      <h4 style="color:white;">Add Other Features (Optional)</h4></label>
                       <div class="row container" *ngFor="let detail of otherDetails; let i = index;" style="margin-top: 1rem;">
                           <div class="col-md-6" style="text-align: center; margin-right: 0em;">
-                              <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; background-color: #020122;">
-                                <h4 style="color:white;">Detail Name</h4></label>
+
+                              <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; background-color: #005fd5;">
+                                <h4 style="color:white;">Feature Name</h4></label>
                               
                           </div>
                           <div class="col-md-6" style="text-align:center; margin-left: 0rem;">
@@ -78,16 +79,32 @@
                         </div>
                         <div class="row container" style="margin-top: 1rem;"> 
                           <div class="col-md-4">
-                              <button class="btn btn-md btn-success" (click)="addDetails();">Add more details</button>
+                              <button class="btn btn-md btn-success" (click)="addDetails();">Add more features</button>
                             </div>
                             <div class="col-md-4">
-                                <button class="btn btn-md btn-danger" *ngIf="this.otherDetails.length>1" (click)="removeLastDetail();">Remove Last Detail</button>
+                                <button class="btn btn-md btn-danger" *ngIf="this.otherDetails.length>1" (click)="removeLastDetail();">Remove Last Feature</button>
                               </div>
                             
                             
                         </div>
 
                     
+                </div>
+              </div>
+              <div class="row">
+                <div class="mt-4 col-md-12">
+              
+                </div>
+              
+              </div>
+              <div class="row">
+                <div class="col-md-6" style="text-align: center; margin-right: 0em;">
+                    <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; background-color: #005fd5;">
+                      <h4 style="color:white;">Product Image</h4></label>
+                    
+                </div>
+                <div class="col-md-6" style="text-align:center; margin-left: 0rem;">
+                    <input formControlName="file" name="file" id="file" type="file" style="height: 50px;" (change)="OnSelectedFile($event)">
                 </div>
               </div>
             <div class="row">
@@ -108,7 +125,7 @@
               
               </div>
               <div class="col-md-12" style="text-align: center;">
-                <button class="btn btn-lg form-control back-button" routerLink="/root-admin" >Back</button>
+                <button class="btn btn-lg btn-warning form-control back-button" routerLink="/root-admin" >Back to Home</button>
                 
             </div>
              

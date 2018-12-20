@@ -3,15 +3,12 @@ import { RootCategoryService } from '../../../shared/services/root-category.serv
 import { NgxUiLoaderService } from 'ngx-ui-loader'; 
 import Swal from 'sweetalert2';
 
-
 @Component({
-  selector: 'app-add-sub-category',
-  templateUrl: './add-sub-category.component.html',
-  styleUrls: ['./add-sub-category.component.scss']
+  selector: 'app-list-sub-categories',
+  templateUrl: './list-sub-categories.component.html',
+  styleUrls: ['./list-sub-categories.component.scss']
 })
-export class AddSubCategoryComponent implements OnInit {
-
-
+export class ListSubCategoriesComponent implements OnInit {
 
   categories=[];
 
@@ -144,5 +141,6 @@ export class AddSubCategoryComponent implements OnInit {
         })
     }
   }
+
 
 }

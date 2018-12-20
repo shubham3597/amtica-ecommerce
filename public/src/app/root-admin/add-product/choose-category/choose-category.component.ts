@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { RootCategoryService } from '../../../shared/services/root-category.service';
+import { RootCategoryService } from '../../../../shared/services/root-category.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader'; 
 import Swal from 'sweetalert2';
-
+import {
+  Router, Event, NavigationStart, RoutesRecognized,
+  RouteConfigLoadStart, RouteConfigLoadEnd,
+  NavigationEnd, NavigationCancel, NavigationError, NavigationExtras
+  } from '@angular/router';
 
 @Component({
-  selector: 'app-add-sub-category',
-  templateUrl: './add-sub-category.component.html',
-  styleUrls: ['./add-sub-category.component.scss']
+  selector: 'app-choose-category',
+  templateUrl: './choose-category.component.html',
+  styleUrls: ['./choose-category.component.scss']
 })
-export class AddSubCategoryComponent implements OnInit {
-
+export class ChooseCategoryComponent implements OnInit {
 
 
   categories=[];
 
-  constructor(private rootservice: RootCategoryService, private ngxService: NgxUiLoaderService) { }
+  constructor(private rootservice: RootCategoryService, private router: Router, private ngxService: NgxUiLoaderService) { }
 
   ngOnInit() {
     this.ngxService.start(); // start foreground loading with 'default' id
@@ -26,6 +29,17 @@ export class AddSubCategoryComponent implements OnInit {
     }, 500);
     this.getAllCategories();
 
+  }
+
+  navigateToAddProduct(subCategory){
+  
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "subCategory": subCategory
+      }
+    };
+    this.router.navigate(['root-admin', 'add-product'], navigationExtras);
+    console.log(navigationExtras);
   }
 
   async getAllCategories(){

@@ -1,3 +1,29 @@
-<p>
-  add-sub-category works!
-</p>
+<app-root-admin></app-root-admin>
+<div class="main">
+  <div class="row main-heading">
+    <div class="col-md-12" style="text-align:center;">
+      <h1 style="font-weight:inherit; font-size: 40px;">Add a new Sub Category</h1>
+      <div class="col-sm-12">
+        Please select a root-category from the following for your sub-category.
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mt-4 col-md-12">
+
+    </div>
+
+  </div>
+  <div class="row" style="margin-bottom: 5px;" *ngFor="let category of categories; let i = index;">
+      
+      <div class="col-md-4 col-sm-12 col-xs-12 square" [routerLink]="['/root-admin/category',category?._id]" style="cursor: pointer;" *ngIf="category?.type == 'root'">
+          <h3 style="color:white;">{{category?.categoryName}} </h3>
+          
+          <div class="row container">
+            <p style="color:white;">{{category?.categoryDescription}}</p>
+          </div>
+          
+      </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: #020122;
+    background-color: #005fd5;
     color: white;
     position: fixed;
     height: 100%;
@@ -14,6 +14,7 @@
   .sidebar h2 {
       padding:14px;
       font-weight: bold;
+      color: white;
   }
   
   /* Sidebar links */
@@ -26,13 +27,13 @@
   
   /* Active/current link */
   .sidebar a.active {
-    background-color: #FF521B;
+    background-color: #002f6a;
     color: white;
   }
   
   /* Links on mouse-over */
   .sidebar a:hover:not(.active) {
-    background-color: #555;
+    background-color: #002f6a;
     color: white;
   }
   
@@ -64,7 +65,7 @@
   .dropdown-btn {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    color: #818181;
+    color: white;
     display: block;
     border: none;
     background: none;
@@ -75,11 +76,11 @@
   }
 
   .dropdown-btn:hover {
-    color: #FF521B;
+    color: #a1b2c7;
   }
 
   .dropdown-container {
     display: none;
-    background-color: #FF521B;
+    background-color: #002f6a;
     padding-left: 8px;
   }

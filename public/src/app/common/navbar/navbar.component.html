@@ -6,8 +6,10 @@
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-container">
-    <a routerLink="/root-admin" >Root Admin Home</a>
-    <a [routerLink]="['/root-admin/add-category']" routerLinkActive="active">Add a category</a>
-    <a [routerLink]="['/root-admin/list-categories']" routerLinkActive="active">List all Categories</a>
+    <a routerLink="/root-admin">Root Admin Home</a>
+    <a [routerLink]="['/root-admin/add-category']" routerLinkActive="active">Add a Root-Category</a>
+    <a [routerLink]="['/root-admin/add-sub-category']" routerLinkActive="active">Add a Sub-Category</a>
+    <a [routerLink]="['/root-admin/list-sub-categories']" routerLinkActive="active">All Sub-Categories</a>
+    <a [routerLink]="['/root-admin/list-categories']" routerLinkActive="active">All Root-Categories</a>
   </div>
 </div>
