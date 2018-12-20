@@ -72,7 +72,7 @@
 
                             <div class="col-md-12" *ngFor="let product of product; let i = index;">
                                 <div class="row">
-                                <div class="col-md-3 col-sm-12 col-xs-12 square">
+                                <div class="col-md-3 col-sm-12 col-xs-12 square" routerLink="/product/{{this.product?._id}}">
                                     <h3 style="color:white;">{{product?.name}}</h3>
     
                                 </div> 
