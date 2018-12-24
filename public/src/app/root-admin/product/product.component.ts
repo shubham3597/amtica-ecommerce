@@ -31,6 +31,7 @@ export class ProductComponent implements OnInit {
   };
 
   productId;
+  imageFile: File;
 
   constructor(private rootservice: RootCategoryService, private ngxService: NgxUiLoaderService,
     private rootService: RootCategoryService, private _activatedRoute: ActivatedRoute) { 
@@ -59,6 +60,20 @@ export class ProductComponent implements OnInit {
       })
     }, (err) => {
       console.log('Error while fetching Product', err);
+    })
+  }
+
+  OnSelectedFile(event){
+    this.imageFile = <File>event.target.files[0];
+    console.log('Image File', this.imageFile);
+    const file = new Object();
+    file['itemPicture'] = this.imageFile;
+    console.log(file);
+    this.rootService.updateImage(this.productId, this.imageFile)
+    .subscribe((res)=>{
+      console.log('Image Updated', res);
+    },(err)=>{
+      console.log('Error while uploading image', err)
     })
   }
 

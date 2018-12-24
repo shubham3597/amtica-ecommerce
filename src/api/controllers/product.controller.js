@@ -2,18 +2,6 @@ const { Product } = require('../models');
 const { Category } = require('../models');
 const { sendErr } = require('../../utils');
 
-const multer = require('multer');
-const storage = multer.diskStorage({
-  destination: function(req, file, cb){
-    cb(null, './uploads');
-  },
-  filename: function(req, file, cb){
-    cb(null, new Date().toISOString()+ file.originalname); 
-    console.log(file);
-  }
-})
-const upload = multer({storage: storage});
-
 /*  ======================
  *  -- Product CONTROLLERS --
  *  ======================
@@ -138,6 +126,28 @@ const removeProduct = async (req, res, next) => {
     }
   };
 
+  const updateImage = async (req, res, next) => {
+    try {
+      const productId = req.params.productId;
+      const fileName = req;
+  
+      const product = await Product.findByIdAndUpdate({
+        _id: productId
+      }, {
+        itemPicture: fileName
+      }, {
+        new: true
+      });
+  
+      return res.status(200).json({
+        message: 'Product profile picture updated!',
+        product
+      });
+    } catch (err) {
+      return sendErr(res, err);
+    }
+  };
+
 /*  =============
  *  -- EXPORTS --
  *  =============
@@ -149,5 +159,6 @@ module.exports = {
   getAllProducts,
   getProduct,
   updateProduct,
-  removeProduct
+  removeProduct,
+  updateImage
 };

@@ -9,6 +9,39 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                        <div class="mt-4 col-md-12">
+                      
+                        </div>
+                      
+                      </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class=" btn btn-sm form-control" style=" height: 50px; font-weight: bold; background-color: #005fd5;">
+                                  <h4 style="color:white;">Category Path</h4></label>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                    <label class=" btn btn-sm form-control btn-success" style=" height: 50px; font-weight: bold; cursor: text;">
+                                            <h4 style="color:white;">
+                                                <span>Home/</span>
+                                                <span *ngFor="let category of categoryList.slice().reverse() ">{{category?.categoryName}}/</span>
+                                            </h4>
+                                        </label>
+                                
+                                  
+                                
+                            </div>
+                        </div>
+                      
+                      </div>
+                      <div class="row">
+                          <div class="mt-4 col-md-12">
+                        
+                          </div>
+                        
+                        </div>
                 <div class="row container"> 
                         <label class="btn-warning btn-lg" style="background-color:#002f6a ;"> <div class="col-md-12">
                             

@@ -1,12 +1,9 @@
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
-//const fileUpload = require('express-fileupload');
+const fileUpload = require('express-fileupload');
 const morgan = require('morgan');
 const path = require('path');
-
-const multer = require('multer');
-const upload = multer({dest:'uploads/'})
 
 const devEnv = require('../../development.config');
 
@@ -42,12 +39,11 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 // Set file upload middleware
-//app.use(fileUpload());
-//app.use('/uploads', express.static(process.env.FILE_UPLOAD_FOLDER));
+app.use(fileUpload());
+app.use('/uploads', express.static(process.env.FILE_UPLOAD_FOLDER));
 
 // static folder
 app.use(express.static(path.join(__dirname, '../../public/dist/public'), {redirect: false}));
-app.use('/uploads', express.static('uploads'));
 
 // Routes which should handle request
 app.all('/', (req, res, next) => {

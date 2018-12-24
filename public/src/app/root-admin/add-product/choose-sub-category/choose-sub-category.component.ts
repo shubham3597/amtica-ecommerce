@@ -33,6 +33,10 @@ export class ChooseSubCategoryComponent implements OnInit {
     categoryName:'',
     _id:''
   };
+
+  category = new Array();
+  categoryList= new Array();
+  firstCategory = '';
   
   constructor(private ngxService: NgxUiLoaderService,
     private router: Router, private rootService: RootCategoryService, private _activatedRoute: ActivatedRoute) {
@@ -87,6 +91,7 @@ export class ChooseSubCategoryComponent implements OnInit {
   ngOnInit() {
   
     this.subCategoriesData = [];
+    this.category.push(this.categoryId);
   
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -105,7 +110,62 @@ export class ChooseSubCategoryComponent implements OnInit {
       this.ngxService.stop(); // stop foreground loading with 'default' id
     }, 500);
     this.getCategory(this.categoryId);
+
+    this.getCategories().then((res)=>{
+      this.categoryList.reverse();
+      console.log(this.categoryList);
+    });
+    
   
+  }
+
+  async getCategories(){
+
+    if(this.category.length > 0){
+       await this.rootService.getCategory(this.category[0])
+        .subscribe((res)=>{
+          console.log(res);
+              this.category.push(res['category']['parentCategories'][0]);
+              this.categoryList.push(res['category']);
+              this.rootService.getCategory(this.category[1])
+              .subscribe((cat1)=>{
+                console.log(cat1);
+                this.category.push(cat1['category']['parentCategories'][0]);
+                this.categoryList.push(cat1['category']);
+                if(this.category.length>2 && this.category[2]!=null){
+                this.rootService.getCategory(this.category[2])
+                .subscribe((cat2)=>{
+                  console.log(cat2);
+                  this.category.push(cat2['category']['parentCategories'][0]);
+                  this.categoryList.push(cat2['category']);
+                  if(this.category.length>3 && this.category[3]!=null){
+                  this.rootService.getCategory(this.category[3])
+                  .subscribe((cat3)=>{
+                    console.log(cat3)
+                    this.category.push(cat3['category']['parentCategories'][0]);
+                    this.categoryList.push(cat3['category']);
+                    if(this.category.length > 4 && this.category[4]!=null){
+                    this.rootService.getCategory(this.category[4])
+                    .subscribe((cat4)=>{
+                      console.log(cat4);
+                      this.categoryList.push(cat4['category']);
+                      this.category.push(cat4['category']['parentCategories'][0]);
+                    });
+                  }
+                  });
+                }
+                });
+              }
+            });
+            
+      
+        }, (err)=>{
+          console.log('Error while fetching categories', err);
+        });
+   
+    }
+
+
   }
   
   async getAllSubcategories() {

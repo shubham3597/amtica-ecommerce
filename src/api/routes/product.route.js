@@ -1,4 +1,5 @@
 const express = require('express');
+const { fileHandler } = require('../../utils')
 
 const {
   products
@@ -6,24 +7,11 @@ const {
 
 const router = express.Router();
 
-const multer = require('multer');
-const storage = multer.diskStorage({
-  destination: function(req, file, cb){
-    cb(null, './uploads');
-  },
-  filename: function(req, file, cb){
-    cb(null, Date.now()+ file.originalname); 
-    console.log(file);
-    
-  }
-})
-const upload = multer({storage: storage});
-
-
-router.post('/',upload.single('itemPicture'), products.addProduct);
+router.post('/', products.addProduct);
 router.get('/', products.getAllProducts);
 router.get('/:productId', products.getProduct);
 router.put('/:productId', products.updateProduct);
 router.delete('/:productId', products.removeProduct);
+router.put('/updateImage/:productId', fileHandler, products.updateImage );
 
 module.exports = router;
