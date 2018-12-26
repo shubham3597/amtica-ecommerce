@@ -43,6 +43,10 @@ export class RootCategoryService {
     return this._http.get(this.BASE_API_URL+'/products');
   }
 
+  updateProduct(productId, productData){
+    return this._http.put(this.BASE_API_URL+'/products/add-feature/'+productId, productData);
+  }
+
   updateImage(productId, fileToUpload:File){
     const formData: FormData = new FormData();
     formData.append('itemPicture', fileToUpload, fileToUpload.name);

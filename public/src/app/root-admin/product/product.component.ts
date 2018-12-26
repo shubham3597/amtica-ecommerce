@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RootCategoryService } from '../../../shared/services/root-category.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader'; 
 import Swal from 'sweetalert2';
-import { ActivatedRoute, Route, NavigationExtras } from '@angular/router';
+import { ActivatedRoute, Route, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -34,7 +34,7 @@ export class ProductComponent implements OnInit {
   imageFile: File;
 
   constructor(private rootservice: RootCategoryService, private ngxService: NgxUiLoaderService,
-    private rootService: RootCategoryService, private _activatedRoute: ActivatedRoute) { 
+    private rootService: RootCategoryService, private _activatedRoute: ActivatedRoute, private router: Router) { 
     this.productId = this._activatedRoute.snapshot.paramMap.get('productid');
   }
 
@@ -75,6 +75,17 @@ export class ProductComponent implements OnInit {
     },(err)=>{
       console.log('Error while uploading image', err)
     })
+  }
+
+  navigateToAddProduct(productId){
+  
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "productId": productId
+      }
+    };
+    this.router.navigate(['root-admin', 'add-feature'], navigationExtras);
+    console.log(navigationExtras);
   }
 
 }

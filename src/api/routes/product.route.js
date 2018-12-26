@@ -13,5 +13,7 @@ router.get('/:productId', products.getProduct);
 router.put('/:productId', products.updateProduct);
 router.delete('/:productId', products.removeProduct);
 router.put('/updateImage/:productId', fileHandler, products.updateImage );
+router.put('/add-feature/:productId', products.addFeature);
+
 
 module.exports = router;

@@ -25,6 +25,7 @@ import { ListSubCategoriesComponent } from './root-admin/list-sub-categories/lis
 import { ChooseCategoryComponent } from './root-admin/add-product/choose-category/choose-category.component';
 import { ListProductsComponent } from './root-admin/product/list-products/list-products.component';
 import { ChooseSubCategoryComponent } from './root-admin/add-product/choose-sub-category/choose-sub-category.component';
+import { AddFeatureComponent } from './root-admin/product/add-feature/add-feature.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 
@@ -68,7 +69,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ListSubCategoriesComponent,
     ChooseCategoryComponent,
     ListProductsComponent,
-    ChooseSubCategoryComponent
+    ChooseSubCategoryComponent,
+    AddFeatureComponent
   ],
   imports: [
     BrowserModule,

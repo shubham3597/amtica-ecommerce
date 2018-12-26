@@ -13,6 +13,7 @@ import { ListSubCategoriesComponent } from './root-admin/list-sub-categories/lis
 import { ChooseCategoryComponent } from './root-admin/add-product/choose-category/choose-category.component';
 import { ListProductsComponent } from './root-admin/product/list-products/list-products.component';
 import { ChooseSubCategoryComponent } from './root-admin/add-product/choose-sub-category/choose-sub-category.component';
+import { AddFeatureComponent } from './root-admin/product/add-feature/add-feature.component';
 
 
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path:'root-admin/category/:id', component: RootCategoryComponent },
   { path:'product/:productid', component:ProductComponent },
   { path:'root-admin/add-product', component:AddProductComponent, data:{} },
+  { path:'root-admin/add-feature', component:AddFeatureComponent, data:{} },
   { path:'root-admin/product/choose-category', component:ChooseCategoryComponent },
   { path:'root-admin/product/category/:id', component:ChooseSubCategoryComponent },
   { path:'root-admin/add-sub-category', component: AddSubCategoryComponent },

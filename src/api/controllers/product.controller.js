@@ -106,6 +106,32 @@ const updateProduct = async (req, res, next) => {
   }
 };
 
+const addFeature = async (req, res, next) => {
+  try {
+    const productId = req.params.productId;
+    const productData = req.body;
+
+    delete req.body.productId
+
+    const product = await Product.findOneAndUpdate({
+      _id: productId
+    }, {
+      $push: productData
+    }, {
+      new: true
+    });
+
+    return res.status(200).json({
+      message: 'Product updated!',
+      product
+    });
+
+  } catch (err) {
+    return sendErr(res, err);
+  }
+};
+
+
 const removeProduct = async (req, res, next) => {
     try {
       const productId  = req.params.productId;
@@ -160,5 +186,6 @@ module.exports = {
   getProduct,
   updateProduct,
   removeProduct,
-  updateImage
+  updateImage,
+  addFeature
 };
